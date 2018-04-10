@@ -20,3 +20,6 @@ if [ $COLTE_BILLING == 1 ]; then
 	ansible-playbook -K -v -i "localhost," -c local $COLTE_DIR/webservices/billing/install_scripts/debian-9.3.yml
 fi
 
+if [ $COLTE_CRDT_BILLING == 1 ]; then
+	ansible-playbook -K -v -i "localhost," -c local $COLTE_DIR/webservices/crdt-billing/install_scripts/debian-9.3.yml
+fi
