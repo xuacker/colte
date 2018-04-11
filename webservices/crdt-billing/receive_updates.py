@@ -13,7 +13,7 @@ def update_db(update):
     db = MySQLdb.connect(host="localhost",
                         user="vagrant",
                         passwd="correcthorsebatterystaple",
-    		        db="crdt_db")
+    		            db="colte_db")
     
     #db = MySQLdb.connect(host="localhost",
     #                    user="root",
@@ -29,18 +29,18 @@ def update_db(update):
     cursor._defer_warnings = True 
     ########### Perform DB Updates:
 
-    create_table_str = "CREATE TABLE IF NOT EXISTS `" + imsi + "`( \
-    `timestamp` int(12) unsigned DEFAULT '0' NOT NULL, \
-    `amount` int(11) DEFAULT '0' NOT NULL, \
-    `user_imsi` varchar(16) NOT NULL, \
-    `sender_id` varchar(16) NOT NULL, \
-    `bts_id` varchar(16) NOT NULL, \
-    `sent` bit(1) DEFAULT 0 NOT NULL, \
-    PRIMARY KEY (`timestamp`, `amount`) \
-    ) ENGINE=MyISAM DEFAULT CHARSET=latin1;"
-    cursor.execute(create_table_str)
+    # create_table_str = "CREATE TABLE IF NOT EXISTS `" + imsi + "`( \
+    # `timestamp` int(12) unsigned DEFAULT '0' NOT NULL, \
+    # `amount` int(11) DEFAULT '0' NOT NULL, \
+    # `user_imsi` varchar(16) NOT NULL, \
+    # `sender_id` varchar(16) NOT NULL, \
+    # `bts_id` varchar(16) NOT NULL, \
+    # `sent` bit(1) DEFAULT 0 NOT NULL, \
+    # PRIMARY KEY (`timestamp`, `amount`) \
+    # ) ENGINE=MyISAM DEFAULT CHARSET=latin1;"
+    # cursor.execute(create_table_str)
     
-    insert_str = "INSERT INTO `" + imsi + "` VALUES ({}, {}, {}, '{}', {}, {})".format(timestamp, amount, imsi, sender_id, bts_id, sent)
+    insert_str = "INSERT INTO transactions VALUES ({}, {}, {}, '{}', {}, {});".format(timestamp, amount, imsi, sender_id, bts_id, sent)
     try:
         cursor.execute(insert_str)
     except MySQLdb.Error, e:

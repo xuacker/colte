@@ -15,7 +15,7 @@ neighbors_file = '/home/vagrant/epc-fork-colte/webservices/crdt-billing/neighbor
 db = MySQLdb.connect(host="localhost",
                     user="vagrant",
                     passwd="correcthorsebatterystaple",
-		    db="crdt_db")
+		            db="colte_db")
 
 #db = MySQLdb.connect(host="localhost",
 #                    user="root",

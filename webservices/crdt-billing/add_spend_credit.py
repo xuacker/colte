@@ -11,6 +11,7 @@ bts_id = sys.argv[4]
 sent = 0
 
 transaction = (str(timestamp), str(amount), str(imsi), "\"" + str(sys.argv[3]) + "\"", str(bts_id), str(sent))
+print transaction
 
 if (int(amount) < 0): 
     bal = balance.query_db(imsi)

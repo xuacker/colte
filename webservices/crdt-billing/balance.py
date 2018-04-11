@@ -10,9 +10,9 @@ def query_db(imsi):
     #		        db="crdt_db")
     
     db = MySQLdb.connect(host="localhost",
-                        user="root",
+                        user="vagant",
                         passwd="correcthorsebatterystaple",
-    		        db="crdt_db")
+    		            db="colte_db")
     
     #db = MySQLdb.connect(host="localhost",
     #                    user="colte",
@@ -23,7 +23,7 @@ def query_db(imsi):
     
     ########### Perform DB Query:
 
-    query_str = "SELECT sum(amount) from `" + imsi + "`"
+    query_str = "SELECT sum(amount) FROM transactions WHERE user_imsi = " + imsi + ";"
     try:
         cursor.execute(query_str)
         result = cursor.fetchone()
