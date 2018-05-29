@@ -8,6 +8,10 @@
       <%= t 'layouts.project_name.h1' %>
     </a>
   </h1>
+  <!-- REMOVE_CLUTTER -->
+  <% if true %>
+    <h2> Placeholder. See app/views/layouts/_header.html.erb </h2>
+  <% else %>
   <a href="#" id="menu-icon"></a>
   <nav class='primary'>
     <%= content_for :header %>
@@ -91,4 +95,5 @@
       </ul>
     <% end %>
   </nav>
+  <% end %>
 </header>
