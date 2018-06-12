@@ -96,6 +96,8 @@ $(document).ready(function () {
 
   var position = $('html').attr('dir') === 'rtl' ? 'topleft' : 'topright';
 
+  // REMOVE_CLUTTER
+  // sidebar buttons: zoom, locate, layers, key, share, note, & query
   L.OSM.zoom({position: position})
     .addTo(map);
 
@@ -107,7 +109,7 @@ $(document).ready(function () {
       title: I18n.t('javascripts.map.locate.title'),
       popup: I18n.t('javascripts.map.locate.popup')
     }
-  }).addTo(map);
+  })//.addTo(map);
 
   var locateContainer = locate.getContainer();
 
@@ -122,7 +124,7 @@ $(document).ready(function () {
   var sidebar = L.OSM.sidebar('#map-ui')
     .addTo(map);
 
-  L.OSM.layers({
+  /*L.OSM.layers({
     position: position,
     layers: map.baseLayers,
     sidebar: sidebar
@@ -147,7 +149,7 @@ $(document).ready(function () {
   L.OSM.query({
     position: position,
     sidebar: sidebar
-  }).addTo(map);
+  }).addTo(map);*/
 
   L.control.scale()
     .addTo(map);
