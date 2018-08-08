@@ -17,17 +17,21 @@
       Billing
     </div>
     <ul class="list-group">
-      <li class="list-group-item">cURL<span style="float:right">{{pwd}}</span></li>
+      <li class="list-group-item">cURL<span style="float:right"></span></li>
     </ul> 
   </div>
   <div class="card">
     <div class="card-header">
       Webgui
     </div>
-    {{!-- <ul class="list-group">
-      <li class="list-group-item">HSS</li>
-      <li class="list-group-item">MMS</li>
-      <li class="list-group-item">SPGW</li>
-    </ul> --}}
+    <ul class="list-group">
+      <li class="list-group-item">cURL<span style="float:right">
+        {{#if webgui}}
+          /
+        {{else}}
+          X
+        {{/if}}
+      </span></li>
+    </ul>
   </div>
 </div>
