@@ -5,10 +5,18 @@ const router = express.Router();
 
 /* GET home page. */
 router.get('/', (req, res, next) => {
-  res.render('index', {
-    title: 'CoLTE System Status',
-    webgui: webgui.status,
-  });
+  webgui.status()
+    .then(status => {
+      console.log("status " + status);
+      res.render('index', {
+        title: 'CoLTE System Status',
+        webgui: parseInt(status),
+      })
+    })
+    .catch(error => {
+      res.render('error');
+    });
+
 });
 
 module.exports = router;
