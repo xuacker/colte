@@ -7,15 +7,9 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
   webservices.status()
     .then(status => {
-			//var object = status;
-			//object[title] = 'CoLTE System Status';
-
-      res.render('index', {
-        title: 'CoLTE System Status',
-        webgui: parseInt(status),
-      })
-
-			//res.render('index', object);
+			status.title = 'CoLTE System Status';
+			console.log(status);
+			res.render('index', status);
     })
     .catch(error => {
 			console.log('error');
