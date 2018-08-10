@@ -11,7 +11,9 @@ const webservices = module.exports;
 webservices.status = () => new Promise((resolve, reject) => {
 	var promises = [];
 
-  var lines = require('fs').readFileSync(__dirname + '/command.txt', 'utf-8').split('\n');
+  var lines = require('fs').readFileSync(__dirname + '/command.txt', 'utf-8')
+			.split('\n')
+			.filter(Boolean);
   lines.forEach( (line) => {
 		var title = line.substr(0, line.indexOf('='));
 		var command = line.substr(line.indexOf('=') + 1);
